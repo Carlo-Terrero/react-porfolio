@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from "axios";
+
 import NavigationContainer from "./navigation/navigation-container";
 import Home from "./pages/home";
 import About from "./pages/about";
@@ -10,7 +11,6 @@ import PortfolioDetail from "./profolio/portfolio-detail";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 
-
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -19,8 +19,9 @@ export default class App extends Component {
       loggedInStatus: "NOT_LOGGED_IN"
     }
 
-    this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this)
-    this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this)
+    this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
+    this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
+    this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
   }
 
   handleSuccessfulLogin(){
@@ -35,6 +36,12 @@ export default class App extends Component {
     })
   }
 
+  handleSuccessfulLogout(){
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+    })
+  }
+
   checkLoginStatus() {
     return axios
       .get("https://api.devcamp.space/logged_in", { 
@@ -42,21 +49,22 @@ export default class App extends Component {
     })
     .then(response => {
       //Cuando optenemos la respuesta de la api, comprobamos el estado.
+      console.log("logged_in return", response)
       const loggedIn = response.data.logged_in;
       const loggedInStatus = this.state.loggedInStatus;
 
-      if (loggedIn && loggedInStatus === 'LOGGED_IN') {
+      if (loggedIn && loggedInStatus === "LOGGED_IN") {
         return loggedIn;
-      } else if (loggedIn && loggedInStatus === 'NOT_LOGGED_IN') {
+      } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
         this.setState({
           loggedInStatus: "LOGGED_IN"
         });
-      } else if (!loggedIn && loggedInStatus === 'NOT_LOGGED_IN') {
+      } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
         this.setState({
-          loggedInStatus: "LOGGED_IN"
+          loggedInStatus: "NOT_LOGGED_IN"
         });
       }
-    })
+    }) 
     .catch(error => {
       console.log("Error", error);
     })
@@ -66,12 +74,21 @@ export default class App extends Component {
     this.checkLoginStatus();
   }
 
+  //Paginas autorizadas solo se podra acceder a estas pg los que esten logeados
+  // se comprueba con un operador ternario.
+  authorizedPages() {
+    return [<Route path="/blog" component={Blog} />]
+  }
+
   render() {
     return (
       <div className='container'>
         <Router>
           <div>      
-            <NavigationContainer />
+            <NavigationContainer 
+              loggedInStatus={this.state.loggedInStatus}
+              handleSuccessfulLogout={this.handleSuccessfulLogout}  
+            />
 
             <h2>{this.state.loggedInStatus}</h2>
 
@@ -96,13 +113,13 @@ export default class App extends Component {
                 )}        
               />
 
-              {/* <Route path="/auth" component={Auth} /> */}
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
-              <Route path="/blog" component={Blog} />
+
+              {this.state.loggedInStatus === "LOGGED_IN" ? this.authorizedPages() : null }
+
               {/* Colocamos exact aqui para que no sea alterado de ninguna manera en la wep */}
               <Route exact path="/portfolio/:slug" component={PortfolioDetail} />
-              <Route path="/blog" component={Blog} />
               <Route component={NoMatch} /> {/* Este es por si ponen una url inexistente en la app,
               que llame directamente a este componente */}
             </Switch>
