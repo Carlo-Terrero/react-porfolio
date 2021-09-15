@@ -1,5 +1,5 @@
 import React from 'react';
-import ContenedorPortafolio from "../profolio/contenedor-portfolio";
+import ContenedorPortafolio from "../portfolio/contenedor-portfolio";
 
 export default function() {
     return (

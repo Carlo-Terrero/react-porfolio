@@ -1,6 +1,5 @@
 /* Esto es un componenete funcional */
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 /* Los props son objetos a los cuales puedes acceder a su lista cuando las declares 
 en la funcion padre(contenedor-portfolio) */

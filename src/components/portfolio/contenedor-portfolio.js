@@ -33,7 +33,8 @@ export default class PortfolioContainer extends Component {
         });
     }
 
-    /*Con este metodo tratamos los datos de la api.Es un copyPast de los ejempos de esta biblioteca que esta en npm.com */
+    /*Con este metodo tratamos los datos de la api.Es un copyPast de los ejemplos
+    de esta biblioteca que esta en npm.com */
     getPortfolioItems(){
         axios
         .get("https://carlosterrero.devcamp.space/portfolio/portfolio_items")
@@ -50,7 +51,7 @@ export default class PortfolioContainer extends Component {
     }
 
     /* Funcion personalizada. En esta funcion se itera sobre los datos(objetos) que tenemos. 
-    vamos es la cumpable de que se repitan uno debajo de otro si repetir ningun codigo */
+    Vamos es la cumpable de que se repitan uno debajo de otro sin repetir ningun codigo */
     PortfolioItems() {     
         return this.state.data.map(item => {
             /* debugger; puede hacer lo mismo que el consol.log pero mostrando de 1 en 1 y derectamente poniendo 
@@ -58,8 +59,8 @@ export default class PortfolioContainer extends Component {
             ---> En consola si ponemos object.keys(nomVarIteracion) nos devuelve lo que necesitamos.
             */
 
-            /*console.log("Datos de respuesta en item", item); Esto nos sirve para saber como se llaman los campos que contiene
-            los datos y asi poder acceder a ellos como hacemos en el proximo return. */
+            /*console.log("Datos de respuesta en item", item); Esto nos sirve para saber como se llaman los
+            campos que contiene los datos y asi poder acceder a ellos como hacemos en el proximo return. */
 
             /* return <h2>{item.datoRequerido}</h2> de esta manera mostramos directamente los datos de la matriz.
             Aquí despues de llamar al hijo le añadimos los atributos como title, etc...

@@ -7,7 +7,8 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Blog from "./pages/blog";
-import PortfolioDetail from "./profolio/portfolio-detail";
+import PortfolioDetail from "./portfolio/portfolio-detail";
+import PortfolioManager from "./pages/portfolio-manager";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 
@@ -49,7 +50,7 @@ export default class App extends Component {
     })
     .then(response => {
       //Cuando optenemos la respuesta de la api, comprobamos el estado.
-      console.log("logged_in return", response)
+      //console.log("logged_in return", response)
       const loggedIn = response.data.logged_in;
       const loggedInStatus = this.state.loggedInStatus;
 
@@ -77,7 +78,7 @@ export default class App extends Component {
   //Paginas autorizadas solo se podra acceder a estas pg los que esten logeados
   // se comprueba con un operador ternario.
   authorizedPages() {
-    return [<Route path="/blog" component={Blog} />]
+    return [  <Route key="portfolio-manager" path="/portfolio-manager" component={PortfolioManager} />]
   }
 
   render() {
@@ -90,12 +91,11 @@ export default class App extends Component {
               handleSuccessfulLogout={this.handleSuccessfulLogout}  
             />
 
-            <h2>{this.state.loggedInStatus}</h2>
 
             {/* Con esto lo que hacemos es marcar un orden en el cual se muestren los componentes,
-            el primero se mostrará cuando iniciemos la app y los siguentes cuando los seleccionemos
+            primero se muestrael menos restrictivo. Los siguentes cuando los seleccionemos
             en el navegador. En este caso Switch es una estructura de cambio y no como en programacion
-            normal como se utiliza.En este caso va banado hata que encuenrea una coincidencia de url 
+            normal como se utiliza.En este caso va bajando hasta que encuentre una coincidencia de url 
             para mostrar.*/}
             <Switch>
               <Route exact path="/" component={Home} />
@@ -115,13 +115,18 @@ export default class App extends Component {
 
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
-
-              {this.state.loggedInStatus === "LOGGED_IN" ? this.authorizedPages() : null }
+              <Route path="/blog" component={Blog} />
+              {this.state.loggedInStatus === "LOGGED_IN" ? 
+                this.authorizedPages(                  
+              ) : null }            
 
               {/* Colocamos exact aqui para que no sea alterado de ninguna manera en la wep */}
               <Route exact path="/portfolio/:slug" component={PortfolioDetail} />
-              <Route component={NoMatch} /> {/* Este es por si ponen una url inexistente en la app,
+              
+              {/* Este es por si ponen una url inexistente en la app,
               que llame directamente a este componente */}
+              <Route component={NoMatch} /> 
+
             </Switch>
           </div>
         </Router>
