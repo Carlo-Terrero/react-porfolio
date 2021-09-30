@@ -1,6 +1,7 @@
 //Componente de navegacion, el navegador
 import React from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withRouter } from "react-router"; // componente de alto orden en minucula.
 import { NavLink } from "react-router-dom"; // esto es un componente.
 
@@ -61,7 +62,10 @@ const NavigationContainer = props => {
             <div className="right-side">
                 CARLOS JOSÉ TERRERO MÉNDEZ
             
-                {props.loggedInStatus === 'LOGGED_IN' ? <a onClick={handleSigOut}>Sign Out</a> : null }
+                {props.loggedInStatus === 'LOGGED_IN' ? <a onClick={handleSigOut}>
+                    <FontAwesomeIcon icon="sign-out-alt"/>                    
+                    </a> 
+                    : null }
             </div>
             
         </div>
