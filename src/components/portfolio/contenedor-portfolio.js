@@ -26,24 +26,31 @@ export default class PortfolioContainer extends Component {
 
     //Con esta funcion hacemos un filtro de lo seleccionado con los botones
     handleFilter(filter){
-        this.setState({
-            data: this.state.data.filter(item => {
-                return item.category === filter;
-            })
-        });
+        if (filter === "CLEAR_FILTERS") {
+            this.getPortfolioItems();
+        } else {
+            this.getPortfolioItems(filter);
+        }
     }
 
     /*Con este metodo tratamos los datos de la api.Es un copyPast de los ejemplos
     de esta biblioteca que esta en npm.com */
-    getPortfolioItems(){
+    getPortfolioItems(filter = null){
         axios
         .get("https://carlosterrero.devcamp.space/portfolio/portfolio_items")
         .then(response => {
-            
-            this.setState({
-                /*Aqui accedemos atraves de response a los data.portfolio_items de la api  */
-                data: response.data.portfolio_items
-            });
+            if (filter) {
+                this.setState({
+                    data: response.data.portfolio_items.filter(item => {
+                        return item.category === filter;
+                    })
+                })
+            } else {
+                this.setState({
+                    /*Aqui accedemos atraves de response a los data.portfolio_items de la api  */
+                    data: response.data.portfolio_items
+                });
+            }
         })
         .catch(error => {
             console.log(error);
@@ -87,16 +94,21 @@ export default class PortfolioContainer extends Component {
         }
         
         return (    
-            <div className="portfolio-items-wrapper">
-                {/* Con JS la llamada a la funciones a traves de clic se hacen de esta manenera
-                en caso de que sean con argumentos. Si son sin argumentos no se utilizas ningun
-                parentesis. */}
-                <button className="btn" onClick={() => this.handleFilter("eCommerce")}>eCommerce</button>
-                <button className="btn" onClick={() => this.handleFilter("Scheduling")}>Scheduling</button>
-                <button className="btn" onClick={() => this.handleFilter("Enterprise")}>Enterprise</button>
+            <div className="homepage-wrapper">
+                <div className="filter-links">
+                    {/* Con JS la llamada a la funciones a traves de clic se hacen de esta manenera
+                    en caso de que sean con argumentos. Si son sin argumentos no se utilizas ningun
+                    parentesis. */}
+                    <button className="btn" onClick={() => this.handleFilter("eCommerce")}>eCommerce</button>
+                    <button className="btn" onClick={() => this.handleFilter("Scheduling")}>Scheduling</button>
+                    <button className="btn" onClick={() => this.handleFilter("Enterprise")}>Enterprise</button>
+                    <button className="btn" onClick={() => this.handleFilter("CLEAR_FILTERS")}>All</button>
+                </div>
 
+                <div className="portfolio-items-wrapper">
                     {/* llamamos a la funcion personalizada */}
                     {this.PortfolioItems()} 
+                </div>
             </div>
         );
     }

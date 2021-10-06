@@ -35,7 +35,7 @@ const NavigationContainer = props => {
     return (
         <div className="nav-wrapper">
             <div className="left-side">
-                {/* Estos son los lisk de React, son muy practicos por que asi sigues tabajando 
+                {/* Estos son los links de React, son muy practicos por que asi sigues tabajando 
                 de forma dinamica como una unica pagina(Lo cual lo es) y que no se recargue. */}
                 <div className="nav-link-wrapper">
                     <NavLink exact to ="/" activeClassName="nav-link-active">Home</NavLink>

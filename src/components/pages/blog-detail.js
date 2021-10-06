@@ -39,8 +39,9 @@ export default class BlogDetail extends Component {
 
     /* Esta funcion se ocupara de permitir actualizar el contenido del blog con un click */
     handleEditClick() {
-        console.log("Estamos al aire");
-        this.setState({ editMode: true});
+        if (this.props.loggedInStatus === "LOGGED_IN") {
+            this.setState({ editMode: true});
+        }
     }
 
     getBlogItem(){
@@ -70,7 +71,7 @@ export default class BlogDetail extends Component {
 
         /* Gestiona el cambio de estado, se encarga de abrir el editor del blog o mostrarlo segun sea el estado */
         const contentManager = () => {
-            if (this.state.editMode) {
+            if (this.state.editMode ) {
                 /* le pasamos el estado utilizarlo en BlogForm y el blog a editar*/
                 return (<BlogForm 
                             handleFeaturedImageDelete={this.handleFeaturedImageDelete} 
