@@ -4,6 +4,20 @@
     align-items: center;
     position: relative;/* El padre siempre lo tiene que tenes */
 
+    .admin-blog-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .action-icon {
+            @include bnt-delete();
+            color:rgb(255, 127, 144);
+            margin-left: 15px;
+            cursor: pointer;
+            
+        }
+    }
+
     .new-blog-link {
         position: fixed;/* con esto el objeto se queda en el mismo sitio aunque bajes en la pg */
         right: 0;

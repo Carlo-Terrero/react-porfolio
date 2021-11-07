@@ -25,6 +25,13 @@
                 display: flex;
                 align-items: center;
 
+                a:link, a:visited, a:active {
+                    text-decoration: none;
+                    color: black;
+                    display: flex;
+                    align-items: center;
+                }
+                
                 .icon {
                     font-size: 2em;
                     color: $teal;
@@ -36,6 +43,7 @@
                     margin-left: 21px;
                 }
 
+               
             }
         }       
     }

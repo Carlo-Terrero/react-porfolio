@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { withRouter } from "react-router"; // componente de alto orden en minucula.
+import { withRouter } from "react-router"; // componente de alto orden en minuscula.
 import { NavLink } from "react-router-dom"; // esto es un componente.
 
 const NavigationContainer = props => {
@@ -50,7 +50,7 @@ const NavigationContainer = props => {
                 </div>
 
                 <div className="nav-link-wrapper">
-                <NavLink to ="/blog" activeClassName="nav-link-active">Blog</NavLink>
+                    <NavLink to ="/blog" activeClassName="nav-link-active">Blog</NavLink>
                 </div>
 
                 {props.loggedInStatus === "LOGGED_IN" ? (
@@ -65,7 +65,8 @@ const NavigationContainer = props => {
                 {props.loggedInStatus === 'LOGGED_IN' ? <a onClick={handleSigOut}>
                     <FontAwesomeIcon icon="sign-out-alt"/>                    
                     </a> 
-                    : null }
+                    : <NavLink to ="/auth" ><FontAwesomeIcon icon="sign-in-alt"/></NavLink>                     
+                     }
             </div>
             
         </div>

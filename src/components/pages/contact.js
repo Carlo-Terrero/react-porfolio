@@ -20,7 +20,7 @@ export default function() {
                             <FontAwesomeIcon icon="mobile-alt"/> 
                         </div>
 
-                        <div className="text">555-555-555</div>
+                        <div className="text">+34 629 228 654</div>
                     </div>
 
                     <div className="bullet-point-group">
@@ -28,7 +28,7 @@ export default function() {
                             <FontAwesomeIcon icon="envelope"/> 
                         </div>
 
-                        <div className="text">micorreo@gmail.com</div>
+                        <div className="text">carlosjose2111@gmail.com</div>
                     </div>
 
                     <div className="bullet-point-group">
@@ -39,9 +39,25 @@ export default function() {
                         <div className="text">Madrid, Spain</div>
                     </div>
 
+                    <div className="bullet-point-group">
                     <a href="https://www.linkedin.com/in/carlos-jos%C3%A9-terrero-mendez-088462111/" target="_blank">
-                        Linked In
+                        <div className="icon"> 
+                            <FontAwesomeIcon icon={["fab", "linkedin"]}/>   
+                        </div>
+                        <div className="text">Linked In</div>
+                       {/*  <FontAwesomeIcon icon={["fab", "linkedin"]}/> */}
                     </a>
+                    </div>
+
+                    <div className="bullet-point-group">
+                        <a href="https://github.com/Carlo-Terrero?tab=repositories" target="_blank">
+                            <div className="icon"> 
+                                <FontAwesomeIcon icon={["fab", "github"]}/>   
+                            </div>
+                        
+                            <div className="text">GitHab</div>
+                        </a>
+                   </div>
                 </div>                                
             </div>
         </div>

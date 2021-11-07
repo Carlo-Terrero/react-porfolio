@@ -18,6 +18,7 @@ const BlogItem = props => {
                 <h1>{title}</h1>
             </Link>
             <div>
+                {/* con esto no mostramos mas de 5 lineas en caso de que las alla */}
                 <Truncate
                     lines={5}
                     ellipsis={

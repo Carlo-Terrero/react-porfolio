@@ -13,14 +13,3 @@ const BlogFeaturedImage = props => {
 };
 
 export default BlogFeaturedImage;
-
-/* -------------------Buscar la diferencias------------------------------- */
-/* import React from 'react';
-
-export default function() {
-    return (
-        <div>
-            
-        </div>
-    );
-} */

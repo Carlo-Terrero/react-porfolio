@@ -82,7 +82,7 @@ export default class App extends Component {
   }
 
   //Paginas autorizadas solo se podra acceder a estas pg los que esten logeados
-  // se comprueba con un operador ternario.
+  // se comprueba con un operador ternario mas abajo.
   authorizedPages() {
     return [  <Route key="portfolio-manager" path="/portfolio-manager" component={PortfolioManager} />]
   }
@@ -99,14 +99,14 @@ export default class App extends Component {
 
 
             {/* Con esto lo que hacemos es marcar un orden en el cual se muestren los componentes,
-            primero se muestrael menos restrictivo. Los siguentes cuando los seleccionemos
+            primero se muestra el menos restrictivo. Los siguentes cuando los seleccionemos
             en el navegador. En este caso Switch es una estructura de cambio y no como en programacion
             normal como se utiliza.En este caso va bajando hasta que encuentre una coincidencia de url 
             para mostrar.*/}
             <Switch>
               <Route exact path="/" component={Home} />
 
-              {/* con esto lo que hacemos es que le damos la capacidad a auth de poder acceder esas funciones 
+              {/* con esto lo que hacemos es que le damos la capacidad a auth de poder acceder a esas funciones 
               que le pasamos que estan en app para influir en el estado. */}
               <Route 
                 path="/auth" 
