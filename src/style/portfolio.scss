@@ -48,3 +48,16 @@
     transition: 1s;
     filter: brightness(10%);
 }
+
+@media (max-width: 1200px){
+    .portfolio-items-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .portfolio-item-wrapper{           
+            padding-bottom: 0.8rem;
+            background-color:rgb(70, 47, 32);
+        }
+       
+    }
+}

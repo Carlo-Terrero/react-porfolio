@@ -48,3 +48,23 @@
         }       
     }
 }
+
+@media (max-width:1200px){
+    .content-wrapper{        
+        display: grid;
+        grid-template-columns:1fr;
+        height: calc(100vh - 150px);
+
+        .left-wrapper {
+            width:auto;
+            height: 400px;
+        }
+
+        .right-wrapper {
+            padding: 3.1rem;
+        }
+
+        
+
+    }
+} 

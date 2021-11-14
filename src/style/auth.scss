@@ -31,3 +31,21 @@
         }
     }
 }
+
+@media (max-width:1200px){
+    
+    .auth-page-wrapper{        
+        display: grid;
+        grid-template-columns:1fr;
+        height: calc(100vh - 150px);
+
+        .left-column {
+            width: auto;
+            height: 400px;
+        }
+    
+        .right-column h1{            
+            margin-left: 64px;
+        }
+    }
+} 

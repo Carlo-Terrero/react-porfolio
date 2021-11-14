@@ -43,3 +43,17 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .portfolio-detail-wrapper {
+        .portfolio-detail-description-wrapper{
+            .description {
+                width:80%;
+                font-size: 1.5em;
+                margin-bottom: 50px;
+                
+            }
+        }
+    }
+
+}
