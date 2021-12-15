@@ -55,7 +55,7 @@ export default function() {
                                 <FontAwesomeIcon icon={["fab", "github"]}/>   
                             </div>
                         
-                            <div className="text">GitHab</div>
+                            <div className="text">GitHub</div>
                         </a>
                    </div>
                 </div>                                

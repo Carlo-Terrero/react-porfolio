@@ -36,7 +36,7 @@ export default class BlogModal extends Component {
         return (
             <ReactModal 
             style={this.customStyles}
-            /*El atributo onRequestClose se encarga de cerrar el modal/popap
+            /*El atributo onRequestClose se encarga de cerrar el modal/poppap
             ya sea dando click fuera o dandole a esc (destro necesita una funcion) */
             onRequestClose={() => {this.props.handleModalClose()}}
             isOpen={this.props.modalIsOpen}
