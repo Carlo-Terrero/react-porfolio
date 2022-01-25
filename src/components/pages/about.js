@@ -13,27 +13,25 @@ export default function() {
             </div>
 
             <div className="right-wrapper">
-                <h1>Desgloce de habilidades.</h1>
+                <h1>Sobre mí</h1>
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis pharetra enim, in sagittis ante interdum sit amet. 
-                    Donec feugiat vestibulum ligula porta euismod. Vestibulum interdum faucibus scelerisque. 
-                    Suspendisse varius elit ac nibh bibendum lacinia. Aliquam lectus ex, tincidunt imperdiet diam sit amet, convallis egestas nisi. 
-                    Aliquam arcu massa, finibus in orci quis, vulputate fringilla sapien. Morbi ac quam tortor.
+                    Busco mi primera experiencia laboral como desarrollador, preferiblemente de 
+                    Frontend, Backend o Full stack.
                 </p>
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis pharetra enim, in sagittis ante interdum sit amet. 
-                    Donec feugiat vestibulum ligula porta euismod. Vestibulum interdum faucibus scelerisque. 
-                    Suspendisse varius elit ac nibh bibendum lacinia. Aliquam lectus ex, tincidunt imperdiet diam sit amet, convallis egestas nisi. 
-                    Aliquam arcu massa, finibus in orci quis, vulputate fringilla sapien. Morbi ac quam tortor.
+                    Empecé en el mundo del desarrollo por la inquietud de conocer qué hay detrás 
+                    de la creación de un programa informático y descubrí que es algo con lo que 
+                    de verdad disfruto y a lo que me encantaría dedicarme profesionalmente. 
+                    Crear apps, webs y herramientas funcionales para mejorar, automatizar o poner 
+                    en marcha un ecommerce es como un sueño cumplido. 
                 </p>
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis pharetra enim, in sagittis ante interdum sit amet. 
-                    Donec feugiat vestibulum ligula porta euismod. Vestibulum interdum faucibus scelerisque. 
-                    Suspendisse varius elit ac nibh bibendum lacinia. Aliquam lectus ex, tincidunt imperdiet diam sit amet, convallis egestas nisi. 
-                    Aliquam arcu massa, finibus in orci quis, vulputate fringilla sapien. Morbi ac quam tortor.
+                    Me gustan los retos, trabajar en equipo, aunque también disfruto de afrontar 
+                    desafíos en solitario y ver como logro mis objetivos; soy persistente, 
+                    carismático y responsable.
                 </p>
 
 
